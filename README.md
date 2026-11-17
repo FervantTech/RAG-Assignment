@@ -3,7 +3,11 @@
 A Python workspace for exploring retrieval-augmented generation (RAG) over local PDFs.
 The current test document is `data/Handbook.pdf`.
 
-## Environment setup (PowerShell)
+## Environment setup
+
+Use Python 3.11 or newer, as specified in `pyproject.toml`.
+
+### Windows (PowerShell)
 
 The local `.venv` was created with Python 3.14. To recreate it with an installed
 Python interpreter, run from the repository root:
@@ -29,13 +33,55 @@ If PowerShell blocks activation, you can use the environment directly:
 
 Run `deactivate` to leave an activated environment.
 
+### macOS / Linux (bash or zsh)
+
+Run from the repository root:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python --version
+python -m pip --version
+python -m pip install -r requirements.txt
+```
+
+Run `deactivate` to leave the environment. Without activation, use
+`.venv/bin/python` in place of `python`.
+
 ## Project layout
 
-- `data/`: local input documents, including the test PDF.
-- `pyproject.toml`: project metadata and dependencies.
-- `.venv/`: local Python environment (ignored by Git).
+```text
+RAG-Assignment/
+|-- src/
+|   |-- __init__.py
+|   |-- read_pdf.py       # PDF extraction, chunking, embeddings, and indexing
+|   |-- vector_store.py   # Chroma storage and cosine search
+|   |-- search.py         # Command-line search
+|   |-- rag.py            # Retrieval, Gemini answers, and citation checks
+|   `-- api.py            # FastAPI endpoints and request validation
+|-- tests/                # Ingestion, storage, RAG, Gemini, and API unit tests
+|-- evaluation/
+|   |-- questions.json
+|   |-- results.json
+|   |-- review.md
+|   `-- unit-test-results.json
+|-- data/                 # Local input PDFs (ignored by Git)
+|-- evaluate.py           # Live evaluation runner
+|-- requirements.txt      # Pinned dependencies
+|-- pyproject.toml        # Project metadata and dependencies
+|-- .env.example          # Example Gemini configuration
+|-- .gitignore
+|-- .gitattributes
+|-- .python-version
+`-- README.md
+```
 
-Install the project dependencies:
+The virtual environment (`.venv/`), model cache (`.cache/`), local credentials
+(`.env`), and generated database (`chroma_db/`) are ignored by Git.
+
+## Indexing and search
+
+On Windows, install the project dependencies:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
@@ -78,7 +124,17 @@ Run the storage and retrieval tests:
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-## Gemini setup
+### macOS / Linux indexing, search, and tests
+
+With the virtual environment activated, the equivalent commands are:
+
+```bash
+python src/read_pdf.py --pdf "data/Handbook.pdf"
+python src/search.py "What is the course name?"
+python -m unittest discover -s tests -v
+```
+
+## Gemini configuration
 
 Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey)
 using a project labelled Free tier. Do not enable billing if you want to avoid
@@ -86,6 +142,10 @@ paid API usage. Free access depends on the model and project quota; see
 [Google's billing documentation](https://ai.google.dev/gemini-api/docs/billing).
 
 On a fresh checkout, copy `.env.example` to `.env`. Enter your own key privately:
+
+PowerShell: `Copy-Item .env.example .env`
+
+macOS / Linux: `cp .env.example .env`
 
 ```dotenv
 GEMINI_API_KEY=your_key_here
@@ -110,6 +170,20 @@ Open `http://127.0.0.1:8000/docs` to try `POST /ask`. In another PowerShell term
 ```powershell
 $body = @{ question = "What is the course name?" } | ConvertTo-Json
 Invoke-RestMethod -Uri http://127.0.0.1:8000/ask -Method Post -ContentType 'application/json' -Body $body
+```
+
+On macOS / Linux, start the server with the virtual environment activated:
+
+```bash
+python -m uvicorn src.api:app --host 127.0.0.1 --port 8000
+```
+
+In another terminal, send a question:
+
+```bash
+curl -X POST http://127.0.0.1:8000/ask \
+  -H 'Content-Type: application/json' \
+  -d '{"question": "What is the course name?"}'
 ```
 
 The JSON response has `answer` and `source` fields, for example
@@ -149,6 +223,12 @@ key and index, record actual answers and pages:
 .\.venv\Scripts\python.exe evaluate.py
 ```
 
+On macOS / Linux, with the virtual environment activated:
+
+```bash
+python evaluate.py
+```
+
 This sends live requests using your configured Gemini project. It writes
 `evaluation/results.json` after each response and stops on API errors. Requests
 are spaced seven seconds apart; adjust `--delay` for your actual quota. Check
@@ -164,7 +244,8 @@ Before submission:
 - Include source code, requirements, this README, tests, and reviewed evaluation
   evidence. Ensure the assessor can obtain the input handbook (it is ignored by Git
   by default). Keep credentials, the virtual environment, model cache, and generated
-  database out of the submission. Confirm the required Git/ZIP format in the brief.
+  database out of the submission. Submit the public GitHub repository link required
+  by the brief: https://github.com/FervantTech/RAG-Assignment
 
 ## Code map
 
