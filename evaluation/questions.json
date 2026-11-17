@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the course name?",
+    "expected_pages": [
+      1
+    ],
+    "expected_answer": "Full-Stack AI Engineer Bootcamp"
+  },
+  {
+    "question": "What minimum internet download and upload speeds are recommended?",
+    "expected_pages": [
+      5
+    ],
+    "expected_answer": "10 Mbps download and 3 Mbps upload"
+  },
+  {
+    "question": "What topics are covered in weeks 11 to 15?",
+    "expected_pages": [
+      6
+    ],
+    "expected_answer": "ReactJS, Redux, Routing, API calls, Advanced React, Context and Hooks"
+  },
+  {
+    "question": "What do green and yellow calendar tiles mean?",
+    "expected_pages": [
+      9
+    ],
+    "expected_answer": "Green: same-day completion; yellow: late completion"
+  },
+  {
+    "question": "When are live classes during the first 12 weeks?",
+    "expected_pages": [
+      11
+    ],
+    "expected_answer": "Mondays 9 am to 11 am and Wednesdays 6 pm to 8 pm"
+  },
+  {
+    "question": "Where are recorded lectures posted and assignments submitted?",
+    "expected_pages": [
+      13
+    ],
+    "expected_answer": "Google Classroom"
+  },
+  {
+    "question": "What percentage of the final grade is the React and Node final project worth?",
+    "expected_pages": [
+      14
+    ],
+    "expected_answer": "35%"
+  },
+  {
+    "question": "What are the total bootcamp fees?",
+    "expected_pages": [
+      16
+    ],
+    "expected_answer": "R 38,950"
+  },
+  {
+    "question": "Which platform is the main communication channel after orientation?",
+    "expected_pages": [
+      18
+    ],
+    "expected_answer": "Discord"
+  },
+  {
+    "question": "What are the tutor support hours on Tuesdays and Thursdays?",
+    "expected_pages": [
+      20
+    ],
+    "expected_answer": "Tuesday 2-4 pm and 6-8 pm; Thursday 10 am-12 pm and 6-8 pm"
+  },
+  {
+    "question": "What is the campus Wi-Fi password?",
+    "expected_pages": [],
+    "expected_answer": "answer unavailable"
+  },
+  {
+    "question": "What is the cafeteria lunch menu?",
+    "expected_pages": [],
+    "expected_answer": "answer unavailable"
+  }
+]

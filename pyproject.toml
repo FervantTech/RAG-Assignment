@@ -1,0 +1,17 @@
+[project]
+name = "rag-assignment"
+version = "0.1.0"
+description = "Experiments with retrieval-augmented generation over local PDF documents."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pypdf==6.21.2",
+    "sentence-transformers==6.2.0",
+    "chromadb==1.5.9",
+    "google-genai==2.34.0",
+    "fastapi==0.162.0",
+    "uvicorn==0.54.0",
+    "python-dotenv==1.2.4",
+    "httpx==0.28.1",
+    "pydantic==2.14.2",
+]

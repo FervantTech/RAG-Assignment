@@ -1,0 +1,162 @@
+{
+  "run_at": "2026-10-30T14:14:58.172711+00:00",
+  "indexed_source": "C:\\Users\\devon\\repos\\rag_assignment\\data\\Handbook.pdf",
+  "note": "Actual handbook API responses reviewed against the PDF. Initial run: 11 of 12 expected outcomes. The curriculum question's latest API retest passed; earlier abstentions remain recorded. Latest reviewed outcomes: 12 of 12. Model output can vary; this sample does not guarantee future accuracy or a grade.",
+  "results": [
+    {
+      "question": "What is the course name?",
+      "http_status": 200,
+      "answer": "The course name is the Full-Stack AI Engineer Bootcamp.",
+      "source": "Page 1",
+      "review": "pass",
+      "expected_answer": "Full-Stack AI Engineer Bootcamp",
+      "expected_pages": [
+        1
+      ],
+      "review_notes": "Course title checked against the handbook cover on PDF page 1."
+    },
+    {
+      "question": "What minimum internet download and upload speeds are recommended?",
+      "http_status": 200,
+      "answer": "The recommended minimum internet speeds are 10 Mbps for download and 3 Mbps for upload.",
+      "source": "Page 5",
+      "review": "pass",
+      "expected_answer": "10 Mbps download and 3 Mbps upload",
+      "expected_pages": [
+        5
+      ],
+      "review_notes": "10 Mbps download and 3 Mbps upload checked on PDF page 5."
+    },
+    {
+      "question": "What topics are covered in weeks 11 to 15?",
+      "http_status": 200,
+      "answer": "The topics covered in weeks 11 to 15 are ReactJS, Redux, Routing, API calls, Advanced React, Context, and Hooks.",
+      "source": "Page 6",
+      "review": "pass after retest",
+      "previous_attempts": [
+        {
+          "http_status": 200,
+          "answer": "answer unavailable",
+          "source": null
+        },
+        {
+          "http_status": 200,
+          "answer": "answer unavailable",
+          "source": null,
+          "retested_at": "2026-10-30T15:17:33.530849+00:00"
+        }
+      ],
+      "retested_at": "2026-10-30T15:24:58.490534+00:00",
+      "expected_answer": "ReactJS, Redux, Routing, API calls, Advanced React, Context and Hooks",
+      "expected_pages": [
+        6
+      ],
+      "review_notes": "The latest actual POST /ask result matches the weeks 11-15 table on PDF page 6. Two earlier API attempts abstained; they are preserved in previous_attempts. The exact cause of that variation is not established."
+    },
+    {
+      "question": "What do green and yellow calendar tiles mean?",
+      "http_status": 200,
+      "answer": "Green calendar tiles mean same day completion, demonstrating the ability to meet deadlines promptly. Yellow calendar tiles mean late completion, indicating tasks were completed after the designated day or more, serving as a learning opportunity for time management.",
+      "source": "Page 9",
+      "review": "pass",
+      "expected_answer": "Green: same-day completion; yellow: late completion",
+      "expected_pages": [
+        9
+      ],
+      "review_notes": "Green means same-day completion and yellow means late completion, PDF page 9."
+    },
+    {
+      "question": "When are live classes during the first 12 weeks?",
+      "http_status": 200,
+      "answer": "During the first 12 weeks of the bootcamp, live classes are held from 6 pm to 8 pm on Wednesdays and from 9 am to 11 am on Mondays.",
+      "source": "Page 11",
+      "review": "pass",
+      "expected_answer": "Mondays 9 am to 11 am and Wednesdays 6 pm to 8 pm",
+      "expected_pages": [
+        11
+      ],
+      "review_notes": "Monday 9-11 am and Wednesday 6-8 pm for the first 12 weeks, PDF page 11."
+    },
+    {
+      "question": "Where are recorded lectures posted and assignments submitted?",
+      "http_status": 200,
+      "answer": "Recorded lectures are posted on Google Classroom, and assignments are also shared and submitted on Google Classroom.",
+      "source": "Page 13",
+      "review": "pass",
+      "expected_answer": "Google Classroom",
+      "expected_pages": [
+        13
+      ],
+      "review_notes": "Google Classroom is the recording and assignment platform, PDF page 13."
+    },
+    {
+      "question": "What percentage of the final grade is the React and Node final project worth?",
+      "http_status": 200,
+      "answer": "The React and Node final project is worth 35% of the final grade.",
+      "source": "Page 14",
+      "review": "pass",
+      "expected_answer": "35%",
+      "expected_pages": [
+        14
+      ],
+      "review_notes": "The React/Node final project carries 35%, PDF page 14."
+    },
+    {
+      "question": "What are the total bootcamp fees?",
+      "http_status": 200,
+      "answer": "The total bootcamp fees are R 38,950.",
+      "source": "Page 16",
+      "review": "pass",
+      "expected_answer": "R 38,950",
+      "expected_pages": [
+        16
+      ],
+      "review_notes": "The total stated fee is R 38,950, PDF page 16."
+    },
+    {
+      "question": "Which platform is the main communication channel after orientation?",
+      "http_status": 200,
+      "answer": "After the orientation day and the official start of the boot camp, Discord serves as the primary platform for all communication.",
+      "source": "Page 18",
+      "review": "pass",
+      "expected_answer": "Discord",
+      "expected_pages": [
+        18
+      ],
+      "review_notes": "Communication moves to Discord after orientation, PDF page 18."
+    },
+    {
+      "question": "What are the tutor support hours on Tuesdays and Thursdays?",
+      "http_status": 200,
+      "answer": "On Tuesdays, tutor support hours are from 2:00 PM to 4:00 PM and 6:00 PM to 8:00 PM. On Thursdays, they are from 10:00 AM to 12:00 PM and 6:00 PM to 8:00 PM.",
+      "source": "Page 20",
+      "review": "pass",
+      "expected_answer": "Tuesday 2-4 pm and 6-8 pm; Thursday 10 am-12 pm and 6-8 pm",
+      "expected_pages": [
+        20
+      ],
+      "review_notes": "Tutor support hours checked against both Tuesday and Thursday slots, PDF page 20."
+    },
+    {
+      "question": "What is the campus Wi-Fi password?",
+      "http_status": 200,
+      "answer": "answer unavailable",
+      "source": null,
+      "review": "pass",
+      "expected_answer": "answer unavailable",
+      "expected_pages": [],
+      "review_notes": "Correct abstention: no campus Wi-Fi password is specified in the handbook."
+    },
+    {
+      "question": "What is the cafeteria lunch menu?",
+      "http_status": 200,
+      "answer": "answer unavailable",
+      "source": null,
+      "review": "pass",
+      "expected_answer": "answer unavailable",
+      "expected_pages": [],
+      "review_notes": "Correct abstention: no cafeteria menu is specified in the handbook."
+    }
+  ],
+  "reviewed_at": "2026-10-30T18:17:23.182214+00:00"
+}
